@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: resilience4j-examples
+
+
+
+resilience4j:
+  retry:
+    instances:
+      ecommerce:
+        base-config:
+        maxAttempts: 3
+        waitDuration: 500ms
+        retryExceptions:
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+        ignoreExceptions:
+          - java.lang.IllegalArgumentException
+        enable-exponential-backoff: true
+        exponential-max-wait-duration: 2s
+        exponential-backoff-multiplier: 2
+
