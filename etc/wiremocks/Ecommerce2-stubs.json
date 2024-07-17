@@ -1,0 +1,77 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "url": "/inventory/stock",
+        "method": "GET"
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "request": {
+        "url": "/inventory/stock",
+        "method": "POST"
+      },
+      "response": {
+        "status": 200,
+        "body": "Hello, world!",
+        "headers": {
+          "Content-Type": "text/plain"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/inventory/stock/delayed"
+      },
+      "response": {
+        "status": 200,
+        "body": "This response is delayed",
+        "delayDistribution": {
+          "type": "uniform",
+          "upper": 2000,
+          "lower": 1000
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/fault/malformed"
+      },
+      "response": {
+        "fault": "MALFORMED_RESPONSE_CHUNK"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/fault/random-data"
+      },
+      "response": {
+        "fault": "RANDOM_DATA_THEN_CLOSE"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/fault/connection-reset"
+      },
+      "response": {
+        "fault": "CONNECTION_RESET_BY_PEER"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/fault/empty-response"
+      },
+      "response": {
+        "fault": "EMPTY_RESPONSE"
+      }
+    }
+  ]
+}

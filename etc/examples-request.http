@@ -1,0 +1,15 @@
+###
+
+GET http://localhost:8080/retry/stocks
+
+
+###
+POST http://localhost:8080/retry/stock
+Content-Type: application/json
+
+{
+  "name": "",
+  "company": "",
+  "price": 0,
+  "quantity": 0
+}
